@@ -9,7 +9,7 @@ spring:
      master:
         url: jdbc:mysql://localhost:3306/springbootv2?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
         username: root
-        password: root
+        password: whw123
      #备数据源 #关闭
      slave:
         enabled: false
