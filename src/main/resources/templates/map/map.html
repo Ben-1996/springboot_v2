@@ -135,10 +135,10 @@
 <script type="text/javascript"  th:inline="javascript">
     var types = [[${@dict.getType('sys_province_state')}]];
     var dataUrl=window.rootPath+"/map/list";
-    var removeUrl=window.rootPath+"/SysAreaController/remove";
-    var createUrl=window.rootPath+"/SysAreaController/add";
-    var updateUrl=window.rootPath+"/SysAreaController/edit/{id}";
-    var exportUrl=window.rootPath+"/SysAreaController/export";
+    var removeUrl=window.rootPath+"/map/remove";
+    var createUrl=window.rootPath+"/map/add";
+    var updateUrl=window.rootPath+"/map/edit/{id}";
+    var exportUrl=window.rootPath+"/map/export";
     var options = {
         dataUrl: dataUrl,
         createUrl: createUrl,

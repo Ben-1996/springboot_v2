@@ -3,6 +3,7 @@ package com.fc.map.service.impl;
 import com.fc.map.mapper.MapMapper;
 import com.fc.map.model.Map;
 import com.fc.map.service.IMapService;
+import com.fc.test.common.support.ConvertUtil;
 import com.fc.test.model.auto.SysArea;
 import com.fc.test.model.auto.SysAreaExample;
 import com.fc.test.model.custom.Tablepar;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -25,4 +27,16 @@ public class MapServiceImpl implements IMapService {
         PageInfo<Map> pageInfo = new PageInfo<Map>(list);
         return  pageInfo;
     }
+    public int deleteByPrimaryKey(int id) {
+        return mapMapper.deleteByPrimaryKey(id);
+    }
+    public int updateByPrimaryKeySelective(Map map){
+        return mapMapper.updateByPrimaryKeySelective(map);
+    }
+    public int insert(Map map){
+        return mapMapper.insert(map);
+    }
+    public Map selectByPrimaryKey(int id){
+        return mapMapper.selectByPrimaryKey(id);
+    };
 }

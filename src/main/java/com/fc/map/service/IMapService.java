@@ -7,4 +7,8 @@ import com.github.pagehelper.PageInfo;
 
 public interface IMapService {
     PageInfo<Map> list(Tablepar tablepar, Map map);
+    int deleteByPrimaryKey(int id);
+    int updateByPrimaryKeySelective(Map map);
+    int insert(Map map);
+    Map selectByPrimaryKey(int id);
 }

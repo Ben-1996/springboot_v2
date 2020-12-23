@@ -1,8 +1,14 @@
 package com.fc.test.controller;
 
+import com.fc.map.model.Map;
+import com.fc.map.service.IMapService;
 import com.fc.test.common.base.BaseController;
+import com.fc.test.model.custom.TableSplitResult;
+import com.fc.test.model.custom.Tablepar;
 import com.fc.test.model.custom.TitleVo;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +21,8 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class IndexController extends BaseController{
-	
+	@Autowired
+	IMapService iMapService;
 	/**
 	 * 前台访问 域名:端口 例如:localhost:80的get请求
 	 * @param map
@@ -43,5 +50,13 @@ public class IndexController extends BaseController{
 		String str="前台";
 		setTitle(map, new TitleVo("列表", str+"管理", true,"欢迎进入"+str+"页面", true, false));
 		return "index";
+	}
+
+	@ApiOperation(value="前台",notes="前台")
+	@GetMapping("/mapdata")
+	public Object list(Tablepar tablepar, Map map){
+		PageInfo<Map> page=iMapService.list(tablepar,map) ;
+		TableSplitResult<Map> result=new TableSplitResult<Map>(page.getPageNum(), page.getTotal(), page.getList());
+		return  result;
 	}
 }

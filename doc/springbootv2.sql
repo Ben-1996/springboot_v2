@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 本地
+ Source Server         : localhost_3306
  Source Server Type    : MySQL
- Source Server Version : 50723
+ Source Server Version : 50732
  Source Host           : localhost:3306
  Source Schema         : springbootv2
 
  Target Server Type    : MySQL
- Target Server Version : 50723
+ Target Server Version : 50732
  File Encoding         : 65001
 
- Date: 23/12/2020 16:58:42
+ Date: 24/12/2020 00:18:39
 */
 
 SET NAMES utf8mb4;
@@ -34,13 +34,15 @@ CREATE TABLE `t_map`  (
   `date` date NULL DEFAULT NULL COMMENT '签约时间',
   `province` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '省份',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_map
 -- ----------------------------
 INSERT INTO `t_map` VALUES (1, '231.123', '152.123', NULL, 'name', '地址', '80001231', 1, '英语', '2020-12-23', '山东');
 INSERT INTO `t_map` VALUES (2, '158.153', '251.132', NULL, 'name2', '地址2', '800213', 2, '数学', '2020-12-21', '江苏');
+INSERT INTO `t_map` VALUES (4, NULL, NULL, NULL, 'name', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_map` VALUES (5, NULL, NULL, NULL, 'name', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for t_sys_area

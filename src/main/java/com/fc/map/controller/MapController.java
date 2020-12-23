@@ -2,23 +2,26 @@ package com.fc.map.controller;
 
 import com.fc.map.model.Map;
 import com.fc.map.service.IMapService;
+import com.fc.test.common.base.BaseController;
+import com.fc.test.common.domain.AjaxResult;
 import com.fc.test.model.auto.SysArea;
 import com.fc.test.model.custom.TableSplitResult;
 import com.fc.test.model.custom.Tablepar;
 import com.fc.test.model.custom.TitleVo;
 import com.github.pagehelper.PageInfo;
+import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import static com.fc.test.common.domain.AjaxResult.error;
+import static com.fc.test.common.domain.AjaxResult.success;
 
 @Controller
 @RequestMapping("/map")
-public class MapController {
+public class MapController extends BaseController {
     private String prefix = "map";
     @Autowired
     private IMapService imapService;
@@ -31,12 +34,67 @@ public class MapController {
         return prefix + "/map";
     }
     @PostMapping("/list")
-    @RequiresPermissions("map:list")
     @ResponseBody
     public Object list(Tablepar tablepar, Map map){
         PageInfo<Map> page=imapService.list(tablepar,map) ;
         TableSplitResult<Map> result=new TableSplitResult<Map>(page.getPageNum(), page.getTotal(), page.getList());
         return  result;
+    }
+
+    @ApiOperation(value = "新增跳转", notes = "新增跳转")
+    @GetMapping("/add")
+    public String add(ModelMap modelMap)
+    {
+        return prefix + "/mapAdd";
+    }
+
+    //@Log(title = "地区设置新增", action = "111")
+    @ApiOperation(value = "新增", notes = "新增")
+    @PostMapping("/add")
+    @RequiresPermissions("map:add")
+    @ResponseBody
+    public AjaxResult add(Map map){
+        int b=imapService.insert(map);
+        if(b>0){
+            return success();
+        }else{
+            return error();
+        }
+    }
+
+    //@Log(title = "地区设置删除", action = "111")
+    @ApiOperation(value = "删除", notes = "删除")
+    @PostMapping("/remove")
+    @RequiresPermissions("map:remove")
+    @ResponseBody
+    public AjaxResult remove(int id){
+        int b=imapService.deleteByPrimaryKey(id);
+        if(b>0){
+            return success();
+        }else{
+            return error();
+        }
+    }
+
+    @ApiOperation(value = "修改跳转", notes = "修改跳转")
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") Integer id, ModelMap mmap)
+    {
+        mmap.put("mapdata", imapService.selectByPrimaryKey(id));
+
+        return prefix + "/edit";
+    }
+
+    /**
+     * 修改保存
+     */
+    //@Log(title = "地区设置修改", action = "111")
+    @ApiOperation(value = "修改保存", notes = "修改保存")
+    @RequiresPermissions("map:edit")
+    @PostMapping("/edit")
+    @ResponseBody
+    public AjaxResult editSave(Map map) {
+        return toAjax(imapService.updateByPrimaryKeySelective(map));
     }
 
 
