@@ -9,12 +9,8 @@
     <link rel="stylesheet" th:href="@{/static/admin/assets/js/button/ladda/ladda.min.css}">
     <!-- bootstrap-table表单样式 -->
     <link th:href="@{/static/admin/assets/js/bootstrap/css/bootstrap-table/bootstrap-table.min.css}" rel="stylesheet"/>
-
+    <script type="text/javascript" th:src="@{/static/map/js/map.js}"></script>
     <style type="text/css">
-        /**
-        *这里写单独的css样式
-        */
-
     </style>
 
 </head>
@@ -138,7 +134,7 @@
 
 <script type="text/javascript"  th:inline="javascript">
     var types = [[${@dict.getType('sys_province_state')}]];
-    var dataUrl=window.rootPath+"/SysAreaController/list";
+    var dataUrl=window.rootPath+"/map/list";
     var removeUrl=window.rootPath+"/SysAreaController/remove";
     var createUrl=window.rootPath+"/SysAreaController/add";
     var updateUrl=window.rootPath+"/SysAreaController/edit/{id}";
@@ -151,6 +147,7 @@
         exportUrl: exportUrl,
         sortName: "roleSort",
         modalName: "地区设置",
+        method:'post',
         search: false,
         dataColumns: [
             {
@@ -165,72 +162,72 @@
                 //order: asc //排序顺序
             },
             {
-                field: 'areaCode',
-                title: '区代码'
+                field: 'x',
+                title: 'X坐标'
                 //visible: false, //隐藏
                 //searchable: false,//搜索
                 //sortable:false,//设置true为允许列可以排序
                 //order: asc //排序顺序
             },
             {
-                field: 'cityCode',
-                title: '父级市代码'
+                field: 'y',
+                title: 'Y坐标'
                 //visible: false, //隐藏
                 //searchable: false,//搜索
                 //sortable:false,//设置true为允许列可以排序
                 //order: asc //排序顺序
             },
             {
-                field: 'areaName',
-                title: '市名称'
+                field: 'name',
+                title: '加盟商名称',
+                //visible: false, //隐藏
+                searchable: true,//搜索
+                //sortable:false,//设置true为允许列可以排序
+                //order: asc //排序顺序
+            },
+            {
+                field: 'address',
+                title: '地址'
                 //visible: false, //隐藏
                 //searchable: false,//搜索
                 //sortable:false,//设置true为允许列可以排序
                 //order: asc //排序顺序
             },
             {
-                field: 'shortName',
-                title: '简称'
+                field: 'tel',
+                title: '联系方式'
                 //visible: false, //隐藏
                 //searchable: false,//搜索
                 //sortable:false,//设置true为允许列可以排序
                 //order: asc //排序顺序
             },
             {
-                field: 'lng',
-                title: '经度'
+                field: 'joinindex',
+                title: '加盟次序'
                 //visible: false, //隐藏
                 //searchable: false,//搜索
                 //sortable:false,//设置true为允许列可以排序
                 //order: asc //排序顺序
             },
             {
-                field: 'lat',
-                title: '纬度'
+                field: 'program',
+                title: '加盟项目'
                 //visible: false, //隐藏
                 //searchable: false,//搜索
                 //sortable:false,//设置true为允许列可以排序
                 //order: asc //排序顺序
             },
             {
-                field: 'sort',
-                title: '排序'
+                field: 'date',
+                title: '加盟时间'
                 //visible: false, //隐藏
                 //searchable: false,//搜索
                 //sortable:false,//设置true为允许列可以排序
                 //order: asc //排序顺序
             },
             {
-                field: 'gmtCreate',
-                title: '创建时间'
-                //visible: false, //隐藏
-                //searchable: false,//搜索
-                //sortable:false,//设置true为允许列可以排序
-                //order: asc //排序顺序
-            },
-            {
-                field: 'gmtModified',
-                title: '修改时间'
+                field: 'province',
+                title: '所属省份'
                 //visible: false, //隐藏
                 //searchable: false,//搜索
                 //sortable:false,//设置true为允许列可以排序
