@@ -27,6 +27,10 @@ public class MapServiceImpl implements IMapService {
         PageInfo<Map> pageInfo = new PageInfo<Map>(list);
         return  pageInfo;
     }
+    public List<Map> mapviewlist(Map map){
+        List<Map> maplist= mapMapper.selectMap(map);
+        return  maplist;
+    }
     public int deleteByPrimaryKey(int id) {
         return mapMapper.deleteByPrimaryKey(id);
     }

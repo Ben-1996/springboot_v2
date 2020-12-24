@@ -47,6 +47,7 @@ public class ShiroConfig {
 		shiroFilterFactoryBean.setFilterChainDefinitionMap(ShiroFilterMapFactory.shiroFilterMap());
 
 		shiroFilterFactoryBean.setSecurityManager(securityManager);
+
 		return shiroFilterFactoryBean;
 	}
 	

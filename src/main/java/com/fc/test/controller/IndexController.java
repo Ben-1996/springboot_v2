@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
 /**
  * 如果有前台这儿写前台访问方法
  * @ClassName: IndexController
@@ -52,11 +54,5 @@ public class IndexController extends BaseController{
 		return "index";
 	}
 
-	@ApiOperation(value="前台",notes="前台")
-	@GetMapping("/mapdata")
-	public Object list(Tablepar tablepar, Map map){
-		PageInfo<Map> page=iMapService.list(tablepar,map) ;
-		TableSplitResult<Map> result=new TableSplitResult<Map>(page.getPageNum(), page.getTotal(), page.getList());
-		return  result;
-	}
+
 }
