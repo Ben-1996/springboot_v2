@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,6 +13,7 @@
     <link rel="stylesheet" th:href="@{/static/admin/assets/css/bootstrap.css}">
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=Gc2vqwQTGRu47FgbsUei0jp29BasmXGO"></script>
     <script type="text/javascript" data-th-src="@{/static/js/app/map/map.js}"></script>
+    <script type="text/javascript" data-th-src="@{/static/js/bootstrap-select.min.js}"></script>
 </head>
 
 <body>
@@ -20,17 +21,14 @@
     <div class="" style="height: auto;overflow: hidden;border:#dedede solid 1px;padding:12px;background: #f5f5f5;">
         <ul>
             <li>
-                <label>地区</label>
-                <input type="text" class="" style="width:220px;" id="dq"/>
-            </li>
-            <li>
+                <label>区域</label>
+                <select id="area" name="role" class="selectpicker" title="请选择" data-width="150px" style=""></select>
                 <label>项目</label>
-                <input type="text" class="" style="width:220px;" id="xm"/>
-            </li>
-            <li>
+                <select id="sel_role1" name="role" class="selectpicker" title="请选择" data-width="150px" style=""></select>
                 <a  id="cx">查询</a>
                 <a  id="cz">重置</a>
             </li>
+
             <div style="clear:both;"></div>
         </ul>
     </div>

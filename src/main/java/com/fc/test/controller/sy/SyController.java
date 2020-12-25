@@ -17,7 +17,7 @@ public class SyController {
     IMapService iMapService;
     @ApiOperation(value="前台",notes="前台")
     @GetMapping("/mapdata")
-    public Object list(Map map){
+    public List<Map> list(Map map){
         List<Map> result=iMapService.mapviewlist(map) ;
         return  result;
     }

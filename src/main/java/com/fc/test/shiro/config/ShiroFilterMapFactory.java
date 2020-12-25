@@ -49,6 +49,7 @@ user:例如/admins/user/**=user没有参数表示必须存在用户，当登入�
 		filterChainDefinitionMap.put("/websocket", "anon");
 		//前端
 		filterChainDefinitionMap.put("/", "anon");
+		filterChainDefinitionMap.put("/map/list", "anon");
 		filterChainDefinitionMap.put("/index", "anon");//任务调度暂时放开
 		
 		filterChainDefinitionMap.put("/quartz/**", "anon");
