@@ -1,5 +1,5 @@
-var program =[{},{},{}];
-var province =[{id:37,name:"山东"},{id:10,name:"北京"}];
+var program =[{"id":99,"text":"-请选择-"},{"id":0,"text":"英语"},{"id":0,"text":"语文"},{"id":0,"text":"数学"}];
+var province =[{"id":99,"text":"-请选择-"},{"id":37,"text":"山东"},{"id":10,"text":"北京"},{"id":20,"text":"河北"},{"id":30,"text":"广东"}];
 $(function () {
     /*var _hmt = _hmt || [];
     (function() {
@@ -8,27 +8,20 @@ $(function () {
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();*/
-    $.ajax({
-        type: 'get',
-        url: '${baseURL}/listAllRole',
-        dataType: "json",
-        success: function (data) {
-            //拼接下拉框
-            for(var i=0;i<data.length;i++){
-                $("#sel_role").append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
-            }
-            //这一步不要忘记 不然下拉框没有数据
-            $("#sel_role").selectpicker("refresh");
-        }
+    $('#area').combobox({
+        data:province,
+        editable: false,
+        valueField:'id',
+        textField:'text'
     });
-    getComboboxText(province,"area");
-
+    $('#program').combobox({
+        data:program,
+        editable: false,
+        valueField:'id',
+        textField:'text'
+    });
     var map = new BMapGL.Map("container");
     // 创建地图实例
-    var point = new BMapGL.Point(116.404, 39.915);
-    // 创建点坐标
-    map.centerAndZoom(point, 15);
-    // 初始化地图，设置中心点坐标和地图级别
     map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
     $.ajax({
         url: "/map/list",
@@ -62,27 +55,19 @@ $(function () {
                     +'</span>'
                 addClickHandler(content,marker[i]);//标记点绑定信息窗口
 
+                function addClickHandler(content,marker) {
+                    marker.addEventListener("click", function (e) {
+                            openInfo(content, e)
+                        }
+                    );
+                }
+                function openInfo(content,e){
+                    var p = e.target;
+                    var point = new BMapGL.Point(p.getPosition().lng, p.getPosition().lat);
+                    var infoWindow = new BMapGL.InfoWindow(content,opts);  // 创建信息窗口对象
+                    map.openInfoWindow(infoWindow,point); //开启信息窗口
+                }
             }
         }});
 
 })
-function getComboboxText(data,comboName) {
-    //拼接下拉框
-    for(var i=0;i<data.length;i++){
-        $("#comboName").append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
-    }
-    //这一步不要忘记 不然下拉框没有数据
-    $("#comboName").selectpicker("refresh");
-}
-function addClickHandler(content,marker) {
-    marker.addEventListener("click", function (e) {
-            openInfo(content, e)
-        }
-    );
-}
-function openInfo(content,e){
-    var p = e.target;
-    var point = new BMapGL.Point(p.getPosition().lng, p.getPosition().lat);
-    var infoWindow = new BMapGL.InfoWindow(content,opts);  // 创建信息窗口对象
-    map.openInfoWindow(infoWindow,point); //开启信息窗口
-}

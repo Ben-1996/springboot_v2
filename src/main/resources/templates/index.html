@@ -10,25 +10,26 @@
         #container{height:100%}
     </style>
     <script type="text/javascript" th:src="@{/static/admin/assets/js/jquery.min.js}"></script>
-    <link rel="stylesheet" th:href="@{/static/admin/assets/css/bootstrap.css}">
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=Gc2vqwQTGRu47FgbsUei0jp29BasmXGO"></script>
+    <script type="text/javascript" data-th-src="@{/static/js/jquery-easyui-1.8.6/jquery.easyui.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/static/admin/assets/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/static/js/jquery-easyui-1.8.6/easyui.css}">
+    <link rel="stylesheet" th:href="@{/static/js/jquery-easyui-1.8.6/icon.css}">
     <script type="text/javascript" data-th-src="@{/static/js/app/map/map.js}"></script>
-    <script type="text/javascript" data-th-src="@{/static/js/bootstrap-select.min.js}"></script>
 </head>
 
 <body>
 <div data-options="region: 'north', border: false" style="height:auto;overflow: hidden;padding:12px;">
     <div class="" style="height: auto;overflow: hidden;border:#dedede solid 1px;padding:12px;background: #f5f5f5;">
         <ul>
-            <li>
-                <label>区域</label>
-                <select id="area" name="role" class="selectpicker" title="请选择" data-width="150px" style=""></select>
-                <label>项目</label>
-                <select id="sel_role1" name="role" class="selectpicker" title="请选择" data-width="150px" style=""></select>
-                <a  id="cx">查询</a>
-                <a  id="cz">重置</a>
-            </li>
-
+            <div>
+                <span>签约地区</span>
+                <input class="easyui-combobox" id="area" name="area" value="99">
+                <span>签约项目</span>
+                <input class="easyui-combobox" id="program" name="program" value="99">
+                <button class="easyui-button">查询</button>
+                <button class="easyui-button">重置</button>
+            <div/>
             <div style="clear:both;"></div>
         </ul>
     </div>
