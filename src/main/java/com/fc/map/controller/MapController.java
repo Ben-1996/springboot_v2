@@ -1,5 +1,6 @@
 package com.fc.map.controller;
 
+import com.fc.map.model.ComboModel;
 import com.fc.map.model.Map;
 import com.fc.map.service.IMapService;
 import com.fc.test.common.base.BaseController;
@@ -15,6 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.fc.test.common.domain.AjaxResult.error;
 import static com.fc.test.common.domain.AjaxResult.success;
@@ -109,5 +113,23 @@ public class MapController extends BaseController {
         //小控件
         map.put("isControl",titleVo.isControl());
         map.put("isribbon", titleVo.isIsribbon());
+    }
+    @PostMapping("/provincelist")
+    @ResponseBody
+    public List<ComboModel> provincelist(){
+        List<ComboModel> list= imapService.provinceList();
+        return list;
+    }
+    @PostMapping("/programlist")
+    @ResponseBody
+    public List<ComboModel> programlist(Tablepar tablepar, Map map){
+        List<ComboModel> list= imapService.programList();
+        return list;
+    }
+    @PostMapping("/allProvincelist")
+    @ResponseBody
+    public List<ComboModel> allProvincelist(Tablepar tablepar, Map map){
+        List<ComboModel> list= imapService.allProvinceList();
+        return list;
     }
 }

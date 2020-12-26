@@ -1,6 +1,7 @@
 package com.fc.map.service.impl;
 
 import com.fc.map.mapper.MapMapper;
+import com.fc.map.model.ComboModel;
 import com.fc.map.model.Map;
 import com.fc.map.service.IMapService;
 import com.fc.test.common.support.ConvertUtil;
@@ -42,5 +43,14 @@ public class MapServiceImpl implements IMapService {
     }
     public Map selectByPrimaryKey(int id){
         return mapMapper.selectByPrimaryKey(id);
+    };
+    public List<ComboModel> programList(){
+        return mapMapper.programList();
+    };
+    public List<ComboModel> provinceList(){
+        return mapMapper.provinceList();
+    };
+    public List<ComboModel> allProvinceList(){
+        return mapMapper.allProvinceList();
     };
 }

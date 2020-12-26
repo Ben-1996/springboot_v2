@@ -25,6 +25,15 @@
     <include refid="Base_Column_List" />
     from t_map t
     where 1=1
+    <if test="map.name!=null and map.name!='' ">
+      and t.name like concat('%',#{map.name},'%')
+    </if>
+    <if test="map.program!=null and map.program!=''">
+      and t.program=#{map.program}
+    </if>
+    <if test="map.province!=null and map.province!=''">
+      and t.province=#{map.province}
+    </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -157,4 +166,16 @@
       date = #{date,jdbcType=DATE}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="programList" resultType="com.fc.map.model.ComboModel">
+    select distinct t.program id , t.program text
+    from t_map t
+  </select>
+  <select id="provinceList" resultType="com.fc.map.model.ComboModel">
+    select distinct t.province id , t.province text
+    from t_map t
+  </select>
+  <select id="allProvinceList" resultType="com.fc.map.model.ComboModel">
+    select distinct t.province id , t.province text
+    from t_province t
+  </select>
 </mapper>
