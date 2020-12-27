@@ -42,7 +42,7 @@ $(function () {
                 // 创建点标记
                 marker[i] = new BMapGL.Marker(point[i]);
                 map.addOverlay(marker[i]);
-                map.centerAndZoom(point[i], 15);
+                map.centerAndZoom(point[i], 13);
                 //创建圆
                 var circle = new Array;
                 circle[i] = new BMapGL.Circle(point[i],750);
