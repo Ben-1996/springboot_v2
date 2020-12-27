@@ -42,7 +42,12 @@ $(function () {
                 // 创建点标记
                 marker[i] = new BMapGL.Marker(point[i]);
                 map.addOverlay(marker[i]);
-                map.centerAndZoom(point[i], 5);
+                map.centerAndZoom(point[i], 15);
+                //创建圆
+                var circle = new Array;
+                circle[i] = new BMapGL.Circle(point[i],750);
+                map.addOverlay(circle[i]);
+
                 // 创建信息窗口
                 var opts = {
                     width: 225,
@@ -71,6 +76,7 @@ $(function () {
                     var infoWindow = new BMapGL.InfoWindow(content,opts);  // 创建信息窗口对象
                     map.openInfoWindow(infoWindow,point); //开启信息窗口
                 }
+
             }
         }
     });
@@ -93,7 +99,7 @@ $(function () {
                         // 创建点标记
                         marker[i] = new BMapGL.Marker(point[i]);
                         map.addOverlay(marker[i]);
-                        map.centerAndZoom(point[i], 5);
+                        map.centerAndZoom(point[i], 15);
                         // 创建信息窗口
                         var opts = {
                             width: 225,
@@ -121,6 +127,9 @@ $(function () {
                             var point = new BMapGL.Point(p.getPosition().lng, p.getPosition().lat);
                             var infoWindow = new BMapGL.InfoWindow(content,opts);  // 创建信息窗口对象
                             map.openInfoWindow(infoWindow,point); //开启信息窗口
+
+
+
                         }
                     }
                 }
