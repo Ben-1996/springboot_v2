@@ -75,6 +75,7 @@ $(function () {
                     var point = new BMapGL.Point(p.getPosition().lng, p.getPosition().lat);
                     var infoWindow = new BMapGL.InfoWindow(content,opts);  // 创建信息窗口对象
                     map.openInfoWindow(infoWindow,point); //开启信息窗口
+                    map.centerAndZoom(point[i], 15);
                 }
 
             }
@@ -131,7 +132,7 @@ $(function () {
                             var point = new BMapGL.Point(p.getPosition().lng, p.getPosition().lat);
                             var infoWindow = new BMapGL.InfoWindow(content,opts);  // 创建信息窗口对象
                             map.openInfoWindow(infoWindow,point); //开启信息窗口
-
+                            map.centerAndZoom(point[i], 15);
 
 
                         }
