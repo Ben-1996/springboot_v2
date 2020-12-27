@@ -12,6 +12,11 @@
     <script type="text/javascript" th:src="@{/static/admin/assets/js/jquery.min.js}"></script>
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=Gc2vqwQTGRu47FgbsUei0jp29BasmXGO"></script>
     <script type="text/javascript" data-th-src="@{/static/js/jquery-easyui-1.8.6/jquery.easyui.min.js}"></script>
+    <!-- <a href="javascript:void(0)" id="sb" onclick="javascript:alert('ok')>Ok</a>
+     <div id="mm" style="width:100px;">
+         ...
+     </div>
+ -->
     <link rel="stylesheet" th:href="@{/static/admin/assets/css/bootstrap.css}">
     <link rel="stylesheet" th:href="@{/static/admin/jquery-easyui-1.8.6/easyui.css}">
     <link rel="stylesheet" th:href="@{/static/admin/jquery-easyui-1.8.6/icon.css}">
@@ -31,6 +36,8 @@
                 <input class="easyui-textbox" id="name" name="name" placeholder="请输入查询加盟商名称">
                 <button id="cx" class="datebox-button">查询</button>
                 <button id="cz" class="datebox-button">重置</button>
+                <span>范围圆开关</span>
+                <input class="easyui-switchbutton" checked="">
             <div/>
             <div style="clear:both;"></div>
         </ul>

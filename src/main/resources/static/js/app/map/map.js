@@ -78,6 +78,7 @@ $(function () {
                     map.centerAndZoom(point[i], 15);
                 }
 
+
             }
         }
     });
@@ -146,7 +147,10 @@ $(function () {
             $('#area').combobox('setValue',null);
             $('#program').combobox('setValue',null);
             $('#name').textbox('clear');
+
         }
     });
+
+
 
 })
