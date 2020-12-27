@@ -65,17 +65,19 @@
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
 			<version>1.2.5</version>
 		</dependency>
-		<!-- mysql驱动7.0-->
+		<!-- mysql驱动8.0-->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+			<version>8.0.22</version>
 		</dependency>
 
 		<!-- mysql驱动8.0
 		 <dependency> 
 		 	<groupId>mysql</groupId> 
 		 	<artifactId>mysql-connector-java</artifactId> 
-			<version>8.0.11</version>
+			<version>8.0.22</version>
 		 </dependency>
 		 -->
 		<!--druid 数据源监控-->
