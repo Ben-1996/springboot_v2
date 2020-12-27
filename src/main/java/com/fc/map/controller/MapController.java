@@ -54,8 +54,8 @@ public class MapController extends BaseController {
 
     //@Log(title = "地区设置新增", action = "111")
     @ApiOperation(value = "新增", notes = "新增")
-    @PostMapping("/add")
-    @RequiresPermissions("map:add")
+    @PostMapping("/addmap")
+    @RequiresPermissions("map:list")
     @ResponseBody
     public AjaxResult add(Map map){
         int b=imapService.insert(map);
@@ -69,10 +69,10 @@ public class MapController extends BaseController {
     //@Log(title = "地区设置删除", action = "111")
     @ApiOperation(value = "删除", notes = "删除")
     @PostMapping("/remove")
-    @RequiresPermissions("map:remove")
+    @RequiresPermissions("map:list")
     @ResponseBody
-    public AjaxResult remove(int id){
-        int b=imapService.deleteByPrimaryKey(id);
+    public AjaxResult remove(Integer ids){
+        int b=imapService.deleteByPrimaryKey(ids);
         if(b>0){
             return success();
         }else{
@@ -80,25 +80,33 @@ public class MapController extends BaseController {
         }
     }
 
-    @ApiOperation(value = "修改跳转", notes = "修改跳转")
-    @GetMapping("/edit/{id}")
-    public String edit(@PathVariable("id") Integer id, ModelMap mmap)
+    /*@ApiOperation(value = "修改跳转", notes = "修改跳转")
+    @GetMapping("/edit")
+    public String edit(Integer id,Map mmap)
     {
-        mmap.put("mapdata", imapService.selectByPrimaryKey(id));
-
-        return prefix + "/edit";
+        mmap.put("SysArea", sysAreaService.selectByPrimaryKey(id));
+        Map map1=imapService.selectByPrimaryKey(id);
+        return prefix + "/mapEdit?name="+map1.getName()+"&x="+map1.getX()+"&y="+map1.getY()+"&id="+ map1.getId()
+                +"&tel="+ map1.getTel()+"&address="+ map1.getAddress()+"&province="+ map1.getProvince()
+                +"&joinindex="+ map1.getJoinindex()+"&program="+ map1.getProgram()+"&date="+map1.getDate();
+    }*/
+    @ApiOperation(value = "修改跳转", notes = "修改跳转")
+    @GetMapping("/edit")
+    public String edit(Integer id, ModelMap mmap)
+    {
+        mmap.put("MapData", imapService.selectByPrimaryKey(id));
+        return prefix + "/mapEdit";
     }
-
     /**
      * 修改保存
      */
     //@Log(title = "地区设置修改", action = "111")
     @ApiOperation(value = "修改保存", notes = "修改保存")
-    @RequiresPermissions("map:edit")
-    @PostMapping("/edit")
+    @RequiresPermissions("map:list")
+    @PostMapping("/editmap")
     @ResponseBody
     public AjaxResult editSave(Map map) {
-        return toAjax(imapService.updateByPrimaryKeySelective(map));
+        return toAjax(imapService.updateByPrimaryKey(map));
     }
 
 

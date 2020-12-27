@@ -15,7 +15,7 @@
     <result column="province" jdbcType="VARCHAR" property="province" />
     <result column="joinindex" jdbcType="INTEGER" property="joinindex" />
     <result column="program" jdbcType="VARCHAR" property="program" />
-    <result column="date" jdbcType="DATE" property="date" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
   </resultMap>
   <sql id="Base_Column_List">
     id, x, y, xy, name, address, province, joinindex, program, date,tel
@@ -46,12 +46,12 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.fc.map.model.Map">
-    insert into t_map ( x, y, xy,
+    insert into t_map ( x, y,
       name, address, province, 
-      joinindex, program, date)
-    values ( #{x,jdbcType=VARCHAR}, #{y,jdbcType=VARCHAR}, #{xy,jdbcType=VARCHAR},
-      #{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
-      #{joinindex,jdbcType=INTEGER}, #{program,jdbcType=VARCHAR}, #{date,jdbcType=DATE})
+      joinindex, program, tel,date)
+    values ( #{map.x,jdbcType=VARCHAR}, #{map.y,jdbcType=VARCHAR},
+      #{map.name,jdbcType=VARCHAR}, #{map.address,jdbcType=VARCHAR}, #{map.province,jdbcType=VARCHAR},
+      #{map.joinindex,jdbcType=INTEGER}, #{map.program,jdbcType=VARCHAR}, #{map.tel,jdbcType=VARCHAR},#{map.date,jdbcType=DATE})
   </insert>
   <insert id="insertSelective" parameterType="com.fc.map.model.Map">
     insert into t_map
@@ -123,48 +123,45 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.fc.map.model.Map">
     update t_map
     <set>
-      <if test="x != null">
-        x = #{x,jdbcType=VARCHAR},
+      <if test="map.x != null">
+        x = #{map.x,jdbcType=VARCHAR},
       </if>
-      <if test="y != null">
-        y = #{y,jdbcType=VARCHAR},
+      <if test="map.y != null">
+        y = #{map.y,jdbcType=VARCHAR},
       </if>
-      <if test="xy != null">
-        xy = #{xy,jdbcType=VARCHAR},
+      <if test="map.name != null">
+        name = #{map.name,jdbcType=VARCHAR},
       </if>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
+      <if test="map.address != null">
+        address = #{map.address,jdbcType=VARCHAR},
       </if>
-      <if test="address != null">
-        address = #{address,jdbcType=VARCHAR},
+      <if test="map.province != null">
+        province = #{map.province,jdbcType=VARCHAR},
       </if>
-      <if test="province != null">
-        province = #{province,jdbcType=VARCHAR},
+      <if test="map.joinindex != null">
+        joinindex = #{map.joinindex,jdbcType=INTEGER},
       </if>
-      <if test="joinindex != null">
-        joinindex = #{joinindex,jdbcType=INTEGER},
+      <if test="map.program != null">
+        program = #{map.program,jdbcType=VARCHAR},
       </if>
-      <if test="program != null">
-        program = #{program,jdbcType=VARCHAR},
-      </if>
-      <if test="date != null">
-        date = #{date,jdbcType=DATE},
+      <if test="map.date != null">
+        date = #{map.date,jdbcType=DATE},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{map.id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.fc.map.model.Map">
     update t_map
-    set x = #{x,jdbcType=VARCHAR},
-      y = #{y,jdbcType=VARCHAR},
-      xy = #{xy,jdbcType=VARCHAR},
-      name = #{name,jdbcType=VARCHAR},
-      address = #{address,jdbcType=VARCHAR},
-      province = #{province,jdbcType=VARCHAR},
-      joinindex = #{joinindex,jdbcType=INTEGER},
-      program = #{program,jdbcType=VARCHAR},
-      date = #{date,jdbcType=DATE}
-    where id = #{id,jdbcType=INTEGER}
+    set x = #{map.x,jdbcType=VARCHAR},
+      y = #{map.y,jdbcType=VARCHAR},
+      name = #{map.name,jdbcType=VARCHAR},
+      address = #{map.address,jdbcType=VARCHAR},
+      province = #{map.province,jdbcType=VARCHAR},
+      joinindex = #{map.joinindex,jdbcType=INTEGER},
+      program = #{map.program,jdbcType=VARCHAR},
+      tel = #{map.tel,jdbcType=VARCHAR},
+      date = #{map.date,jdbcType=DATE}
+    where id = #{map.id,jdbcType=INTEGER}
   </update>
   <select id="programList" resultType="com.fc.map.model.ComboModel">
     select distinct t.program id , t.program text

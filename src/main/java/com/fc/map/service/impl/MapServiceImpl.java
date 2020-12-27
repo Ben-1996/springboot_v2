@@ -38,6 +38,9 @@ public class MapServiceImpl implements IMapService {
     public int updateByPrimaryKeySelective(Map map){
         return mapMapper.updateByPrimaryKeySelective(map);
     }
+    public int updateByPrimaryKey(Map map){
+        return mapMapper.updateByPrimaryKey(map);
+    }
     public int insert(Map map){
         return mapMapper.insert(map);
     }
