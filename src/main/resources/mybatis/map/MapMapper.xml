@@ -86,6 +86,9 @@
       <if test="date != null">
         date,
       </if>
+      <if test="tel != null">
+        tel,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -117,6 +120,9 @@
       </if>
       <if test="date != null">
         #{date,jdbcType=DATE},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=DATE},
       </if>
     </trim>
   </insert>
