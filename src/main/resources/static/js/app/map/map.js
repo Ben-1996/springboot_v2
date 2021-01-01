@@ -39,6 +39,7 @@ $(function () {
                 var x= mapPointList[i].x;
                 var y= mapPointList[i].y;
                 point[i] = new BMapGL.Point(x,y);
+                var greenicon = new BMapGL.icon();
                 // 创建点标记
                 marker[i] = new BMapGL.Marker(point[i]);
                 map.addOverlay(marker[i]);
