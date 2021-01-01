@@ -13,6 +13,7 @@ public interface MapMapper {
     Map selectByPrimaryKey(@Param("id")int id);
     int deleteByPrimaryKey(@Param("id")int id);
     int updateByPrimaryKeySelective(@Param("map") Map map);
+    int updateByPrimaryKey(@Param("map") Map map);
     int insert(@Param("map") Map map);
     List<ComboModel> programList();
     List<ComboModel> provinceList();
