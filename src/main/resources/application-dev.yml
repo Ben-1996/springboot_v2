@@ -7,13 +7,13 @@ spring:
     druid:
      #主库数据源
      master:
-        url: jdbc:mysql://localhost:3306/springbootv2?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+        url: jdbc:mysql://localhost:3306/testguest?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
         username: root
-        password: SUNXIAOXUNsq123
+        password: root
      #备数据源 #关闭
      slave:
         enabled: false
-        url: jdbc:mysql://localhost:3306/springbootv3?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+        url: jdbc:mysql://localhost:3306/testguest?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
         username: root
         password: root
         #配置初始化连接数大小
