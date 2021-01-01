@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace ="com.fc.map.mapper.SubMapper">
+    <resultMap id="BaseResultMap" type="com.fc.map.model.Subject">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="color" jdbcType="VARCHAR" property="color" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id,name,color
+    </sql>
+    <select id="selectTable" parameterType="com.fc.map.model.Subject" resultMap="BaseResultMap">
+        select
+            <include refid="Base_Column_List" />
+        from t_sub
+        where 1=1
+    </select>
+    <insert id="insert" parameterType="com.fc.map.model.Subject">
+        insert into t_sub(name,color)
+        values(#{sub.name,jdbcType=VARCHAR},
+               #{sub.color,jdbcType=VARCHAR})
+    </insert>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from t_sub
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_sub
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.fc.map.model.Subject">
+        update t_sub
+        set
+            name = #{sub.name,jdbcType=VARCHAR},
+            color = #{sub.color,jdbcType=VARCHAR}
+        where id = #{sub.id,jdbcType=INTEGER}
+    </update>
+</mapper>
