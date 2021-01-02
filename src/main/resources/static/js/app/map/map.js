@@ -34,14 +34,86 @@ $(function () {
             var mapPointList=data.rows;
             var marker=new Array;
             var point=new Array;
+            var color = new Array;
             var infoWindow=new Array;
             for(var i=0;i<mapPointList.length;i++){
                 var x= mapPointList[i].x;
                 var y= mapPointList[i].y;
                 point[i] = new BMapGL.Point(x,y);
-                var greenicon = new BMapGL.icon();
+                // var greenicon = new BMapGL.icon();
                 // 创建点标记
-                marker[i] = new BMapGL.Marker(point[i]);
+                color[i] = mapPointList[i].color;
+                console.log(color[i]);
+                if(color[i] == 'green'){
+                    var myIcon = new BMapGL.Icon("static/map/img/maker_green.png", new BMapGL.Size(43, 45), {
+                        // 指定定位位置。
+                        // 当标注显示在地图上时，其所指向的地理位置距离图标左上
+                        // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
+                        // 图标中央下端的尖角位置。
+                        //anchor: new BMapGL.Size(10, 25),
+                        // 设置图片偏移。
+                        // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您
+                        // 需要指定大图的偏移位置，此做法与css sprites技术类似。
+                        //imageOffset: new BMapGL.Size(0, 0 - 25)   // 设置图片偏移
+                    });
+                    marker[i] = new BMapGL.Marker(point[i],{icon: myIcon});
+                }else if(color[i] == 'black'){
+                    var myIcon = new BMapGL.Icon("static/map/img/maker_black.png", new BMapGL.Size(23, 25), {
+                        // 指定定位位置。
+                        // 当标注显示在地图上时，其所指向的地理位置距离图标左上
+                        // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
+                        // 图标中央下端的尖角位置。
+                        anchor: new BMapGL.Size(10, 25),
+                        // 设置图片偏移。
+                        // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您
+                        // 需要指定大图的偏移位置，此做法与css sprites技术类似。
+                        imageOffset: new BMapGL.Size(0, 0 - 25)   // 设置图片偏移
+                    });
+                    marker[i] = new BMapGL.Marker(point[i], {icon: myIcon});
+                }else if(color[i] == 'blue'){
+
+                    var myIcon = new BMapGL.Icon("static/map/img/maker_blue.png", new BMapGL.Size(23, 25), {
+                        // 指定定位位置。
+                        // 当标注显示在地图上时，其所指向的地理位置距离图标左上
+                        // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
+                        // 图标中央下端的尖角位置。
+                        anchor: new BMapGL.Size(10, 25),
+                        // 设置图片偏移。
+                        // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您
+                        // 需要指定大图的偏移位置，此做法与css sprites技术类似。
+                        imageOffset: new BMapGL.Size(0, 0 - 25)   // 设置图片偏移
+                    });
+                    marker[i] = new BMapGL.Marker(point[i],{icon:myIcon});
+                    // marker[i].setIcon(myIcon);
+                }else if(color[i] == 'yellow'){
+                    console.log("123124515");
+                    var myIcon = new BMapGL.Icon("static/map/img/maker_yellow.png", new BMapGL.Size(23, 25), {
+                        // 指定定位位置。
+                        // 当标注显示在地图上时，其所指向的地理位置距离图标左上
+                        // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
+                        // 图标中央下端的尖角位置。
+                        anchor: new BMapGL.Size(10, 25),
+                        // 设置图片偏移。
+                        // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您
+                        // 需要指定大图的偏移位置，此做法与css sprites技术类似。
+                        imageOffset: new BMapGL.Size(0, 0 - 25)   // 设置图片偏移
+                    });
+                    marker[i] = new BMapGL.Marker(point[i], {icon: myIcon});
+                }else{
+                    var myIcon = new BMapGL.Icon("static/map/img/maker_red.png", new BMapGL.Size(23, 25), {
+                        // 指定定位位置。
+                        // 当标注显示在地图上时，其所指向的地理位置距离图标左上
+                        // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
+                        // 图标中央下端的尖角位置。
+                        // anchor: new BMapGL.Size(10, 25),
+                        // 设置图片偏移。
+                        // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您
+                        // 需要指定大图的偏移位置，此做法与css sprites技术类似。
+                        // imageOffset: new BMapGL.Size(0, 0 - 25)   // 设置图片偏移
+                    });
+                    marker[i] = new BMapGL.Marker(point[i],{icon:myIcon});
+                }
+
                 map.addOverlay(marker[i]);
                 map.centerAndZoom(point[i], 13);
                 //创建圆
