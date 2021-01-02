@@ -16,14 +16,20 @@
     <result column="joinindex" jdbcType="INTEGER" property="joinindex" />
     <result column="program" jdbcType="VARCHAR" property="program" />
     <result column="date" jdbcType="VARCHAR" property="date" />
+    <result column="color" jdbcType="VARCHAR" property="color" />
   </resultMap>
   <sql id="Base_Column_List">
     id, x, y, xy, name, address, province, joinindex, program, date,tel
   </sql>
+  <sql id="Column_List">
+    t.id, t.x, t.y, t.xy, t.name, t.address, t.province, t.joinindex, t.program, t.date,t.tel,a.name,a.color as color
+  </sql>
   <select id="selectMap" parameterType="com.fc.map.model.Map" resultMap="BaseResultMap">
     select
-    <include refid="Base_Column_List" />
+    <include refid="Column_List" />
     from t_map t
+    left join t_sub a
+    on t.program = a.name
     where 1=1
     <if test="map.name!=null and map.name!='' ">
       and t.name like concat('%',#{map.name},'%')

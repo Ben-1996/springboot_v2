@@ -68,6 +68,8 @@ public class Map implements Serializable {
      *
      * @mbg.generated
      */
+
+    private String color;
     private String province;
 
     /**
@@ -340,5 +342,13 @@ public class Map implements Serializable {
      */
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
