@@ -8,9 +8,9 @@ spring:
     druid:
      #主库数据源
      master:
-        url: jdbc:mysql://localhost:3306/springbootv2?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+        url: jdbc:mysql://121.4.213.137:3306/springbootv2?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
         username: root
-        password: root
+        password: Root_1234
      #备数据源 #关闭
      slave:
         enabled: false

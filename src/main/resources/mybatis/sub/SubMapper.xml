@@ -38,4 +38,8 @@
             color = #{sub.color,jdbcType=VARCHAR}
         where id = #{sub.id,jdbcType=INTEGER}
     </update>
+    <select id="subList" resultType="com.fc.map.model.ComboModel">
+    select distinct t.name id , t.name text
+    from t_sub t
+  </select>
 </mapper>

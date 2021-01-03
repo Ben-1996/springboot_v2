@@ -1,5 +1,6 @@
 package com.fc.map.controller;
 import com.fc.map.model.ComboModel;
+import com.fc.map.model.Map;
 import com.fc.map.model.Subject;
 import com.fc.map.service.SubService;
 import com.fc.test.common.base.BaseController;
@@ -85,4 +86,10 @@ public class SubController extends BaseController{
     @PostMapping("/editsub")
     @ResponseBody
     public AjaxResult editSave(Subject sub) {return toAjax(subService.updateByPrimaryKeySelective(sub));}
+    @PostMapping("/sublist")
+    @ResponseBody
+    public List<ComboModel> sublist(){
+        List<ComboModel> list= subService.subList();
+        return list;
+    }
 }

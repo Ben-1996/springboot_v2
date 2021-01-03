@@ -17,4 +17,5 @@ public interface SubService {
     List<ComboModel> programList();
     List<ComboModel> provinceList();
     List<ComboModel> allProvinceList();
+    List<ComboModel> subList();
 }

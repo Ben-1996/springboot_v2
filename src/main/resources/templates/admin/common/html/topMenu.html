@@ -24,7 +24,7 @@
 	
 	
 	            <div id="logo-mobile" class="visible-xs">
-	               <h1>用户管理<span>v2</span></h1>
+	               <h1>万邦教育<span>v2</span></h1>
 	            </div>
 	
 	        </div>
@@ -34,7 +34,7 @@
 	        <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
 	            <ul class="nav navbar-nav">
 		<!-- 消息通知栏 -->
-	                <li class="dropdown">
+	                <!--<li class="dropdown">
 	                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i style="font-size:20px;" class="icon-conversation"></i><div class="noft-red">23</div></a>
 	                    <ul style="margin: 11px 0 0 9px;" role="menu" class="dropdown-menu dropdown-wrap">
 	                        <li>
@@ -71,16 +71,16 @@
 	                            <div>See All Messege</div>
 	                        </li>
 	                    </ul>
-	                </li>
+	                </li>-->
 	                <!-- END消息通知栏 -->
 	                <!-- 右边警告图标通知栏 -->
-	                <li>
+	                <!--<li>
 	
 	                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i style="font-size:19px;" class="icon-warning tooltitle"></i><div class="noft-green" th:text="${session.notices.size()}">5</div></a>
 	                    <ul style="margin: 12px 0 0 0;" role="menu" class="dropdown-menu dropdown-wrap">
 	                        <th:block th:each="notice : ${session.notices}">
 								<li>
-									<!-- <a th:href="@{/SysNoticeController/viewinfo/}+${notice.id}"  target="mainFrame"> -->
+									&lt;!&ndash; <a th:href="@{/SysNoticeController/viewinfo/}+${notice.id}"  target="mainFrame"> &ndash;&gt;
 		                            <a th:href="@{/SysNoticeController/viewinfo/}+${notice.id}"  target="mainFrame">
 		                                <span style="background:#DF2135" class="noft-icon fontawesome-comments-alt"></span><i th:text="${notice.title}">From Station</i> <b>查看</b>
 		                            </a>
@@ -92,11 +92,11 @@
 	                        </li>
 	                    </ul>
 	                </li>
-	                <!--END 右边警告图标通知栏 -->
+	                &lt;!&ndash;END 右边警告图标通知栏 &ndash;&gt;
 	                
-	                <!-- 右边帮助图标通知栏  -->
+	                &lt;!&ndash; 右边帮助图标通知栏  &ndash;&gt;
 	                <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
-	                </li>
+	                </li>-->
 		<!-- END右边帮助图标通知栏  -->
 	            </ul>
 	            <!-- 右侧顶部 日期 时间  天气预报  div-->
@@ -119,7 +119,7 @@
 	                </ul>
 	                <!--end 时间DIV -->
 	                <!-- 天气预报div -->
-	                <ul id="nt-title">
+	                <!--<ul id="nt-title">
 	                    <li><i class="wi-day-lightning"></i>&#160;&#160;Berlin&#160;
 	                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
 	                    </li>
@@ -139,7 +139,7 @@
 	                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
 	                    </li>
 	
-	                </ul>
+	                </ul>-->
 	                <!--end 天气预报div -->
 	            </div>
 	<!-- end 右侧顶部 日期 时间  天气预报 -->
@@ -152,7 +152,7 @@
 	                        <img alt="" class="admin-pic img-circle" th:src="@{/static/admin/portraits/thumb/men/10.jpg}"><span th:text="${'Hi,'+session.sessionUserName}"></span><b class="caret"></b>
 	                    </a>
 	                    <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
-	                        <li>
+	                        <!--<li>
 									<a href="#">
 	                                <span class="entypo-user"></span>&#160;&#160;My Profile</a>
 	                        </li>
@@ -164,7 +164,7 @@
 	                            <a href="#">
 	                                <span class="entypo-lifebuoy"></span>&#160;&#160;Help</a>
 	                        </li>
-	                        <li class="divider"></li>
+	                        <li class="divider"></li>-->
 	                        <li>
 	                 				<a th:href="@{/admin/Loginout}">
 	                                <span class="entypo-basket"></span>&#160;&#160; 退出</a>
@@ -197,11 +197,11 @@
 	                <!--END 背景设置 -->
 	                
 	                <!-- 顶部右侧隐藏按钮 -->
-	                <li class="hidden-xs">
+	                <!--<li class="hidden-xs">
 	                    <a class="toggle-left" href="#">
 	                        <span style="font-size:20px;" class="entypo-list-add"></span>
 	                    </a>
-	                </li>
+	                </li>-->
 	                <!-- END顶部右侧隐藏按钮 -->
 	            </ul>
 	            <!-- end 右侧顶部 头像设置-->

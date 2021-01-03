@@ -50,4 +50,7 @@ public  class SubServiceImpl implements SubService {
     public List<ComboModel> allProvinceList(){
         return subMapper.allProvinceList();
     };
+    public List<ComboModel> subList(){
+        return subMapper.subList();
+    };
 }

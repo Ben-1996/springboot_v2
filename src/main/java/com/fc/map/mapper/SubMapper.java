@@ -16,4 +16,5 @@ public interface SubMapper {
     List<ComboModel> programList();
     List<ComboModel> provinceList();
     List<ComboModel> allProvinceList();
+    List<ComboModel> subList();
 }

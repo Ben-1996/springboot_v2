@@ -40,12 +40,14 @@
     <if test="map.province!=null and map.province!=''">
       and t.province=#{map.province}
     </if>
+    order by t.date desc
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_map
     where id = #{id,jdbcType=INTEGER}
+    order by date desc
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_map
