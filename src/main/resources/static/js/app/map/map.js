@@ -27,6 +27,8 @@ $(function () {
     map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
     map.enablePinchToZoom(true);
     map.clearOverlays();
+    var point = new BMapGL.Point(105.65630, 35.32886);
+    map.centerAndZoom(point, 6);
     $.ajax({
         url: "/map/list",
         method: "post",
@@ -115,7 +117,7 @@ $(function () {
                 }
 
                 map.addOverlay(marker[i]);
-                map.centerAndZoom(point[i], 13);
+                /*map.centerAndZoom(point[i], 13);*/
                 //创建圆
                 var circle = new Array;
                 circle[i] = new BMapGL.Circle(point[i],750);
@@ -148,7 +150,7 @@ $(function () {
                     var point = new BMapGL.Point(p.getPosition().lng, p.getPosition().lat);
                     var infoWindow = new BMapGL.InfoWindow(content,opts);  // 创建信息窗口对象
                     map.openInfoWindow(infoWindow,point); //开启信息窗口
-                    map.centerAndZoom(point[i], 15);
+                    /*map.centerAndZoom(point[i], 15);*/
                 }
 
 
@@ -174,7 +176,7 @@ $(function () {
                         // 创建点标记
                         marker[i] = new BMapGL.Marker(point[i]);
                         map.addOverlay(marker[i]);
-                        map.centerAndZoom(point[i], 15);
+                        /*map.centerAndZoom(point[i], 15);*/
                         //创建圆
                         var circle = new Array;
                         circle[i] = new BMapGL.Circle(point[i],750);

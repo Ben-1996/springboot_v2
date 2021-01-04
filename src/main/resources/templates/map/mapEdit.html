@@ -23,6 +23,9 @@
 	.textbox {
 		border: 1px solid #000000!important;
 	}
+	.panel-body{
+		border-color: #FFFFFF!important;
+	}
 </style>
 
 </head>
@@ -36,8 +39,8 @@
 				<div class="">
 				</div>
 				<div class="body-nest" id="element">
-					<div class="panel-body">
-						<form  class="form-horizontal m" id="form-edit" th:object="${MapData}">
+					<div class="panel-body"  style="height: 70%">
+						<form  class="form-horizontal m" id="form-edit" th:object="${MapData}"  style="width: 98%;">
 							<input id="id" name="id" type="hidden" th:field="*{id}" />
 							<div class="form-group">
 								<label class="col-sm-3 control-label ">名称：</label>

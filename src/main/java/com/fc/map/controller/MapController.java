@@ -58,6 +58,9 @@ public class MapController extends BaseController {
     @RequiresPermissions("map:list")
     @ResponseBody
     public AjaxResult add(Map map){
+        if(map.getDate().equals("")){
+            map.setDate(null);
+        }
         int b=imapService.insert(map);
         if(b>0){
             return success();
@@ -106,6 +109,9 @@ public class MapController extends BaseController {
     @PostMapping("/editmap")
     @ResponseBody
     public AjaxResult editSave(Map map) {
+        if(map.getDate().equals("")){
+            map.setDate(null);
+        }
         return toAjax(imapService.updateByPrimaryKey(map));
     }
 
