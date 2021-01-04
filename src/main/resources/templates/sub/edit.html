@@ -19,6 +19,9 @@
         input[type="text"] {
             color: #000000;
         }
+        .panel-body{
+            border-color: #FFFFFF!important;
+        }
     </style>
 
 </head>
@@ -33,7 +36,7 @@
                 </div>
                 <div class="body-nest" id="element">
                     <div class="panel-body">
-                        <form  class="form-horizontal m" id="form-edit" th:object="${SubData}">
+                        <form  class="form-horizontal m" id="form-edit" th:object="${SubData}" style="width: 98%;">
                             <input id="id" name="id" type="hidden" th:field="*{id}" />
                             <div class="form-group">
                                 <label class="col-sm-3 control-label ">科目名称：</label>

@@ -25,10 +25,10 @@
 </head>
 
 <body>
-<div data-options="region: 'north', border: false" style="height:auto;overflow: hidden;padding:12px;">
-    <div class="" style="height: auto;overflow: hidden;border:#dedede solid 1px;padding:12px;background: #f5f5f5;">
+<div data-options="region: 'north', border: false" style="right: 0%;bottom: 0%;z-index: 11;position: absolute;float:right;overflow: hidden;padding:12px;">
+    <div class="" style="height: auto;overflow: hidden;/*! border:#dedede solid 1px; */padding:12px;background: #aaa6a63b;">
         <ul>
-            <div>
+            <div style="width: 100%; z-index: 10" >
                 <span>签约地区</span>
                 <input class="easyui-combobox" id="area" name="area" placeholder="请选择查询地区">
                 <span>签约项目</span>
@@ -38,12 +38,23 @@
                 <button id="cx" class="datebox-button">查询</button>
                 <button id="cz" class="datebox-button">重置</button>
 
-            <div/>
+            </div>
             <div style="clear:both;"></div>
         </ul>
     </div>
 </div>
-    <div id="container"></div>
+<div style="height: 10%;width:90%;position: absolute; z-index: 10;">
+    <div style="float:left;height: 100%">
+        <img src="static/map/img/wbyy.png" height="100%">
+    </div>
+    <div style="margin-top: 3%">
+        <h3 style="color:#0059cc;">万邦英语全国加盟商位置信息</h3>
+    </div>
+</div>
+
+
+<div id="container"></div>
+
 </body>
 </html>
 

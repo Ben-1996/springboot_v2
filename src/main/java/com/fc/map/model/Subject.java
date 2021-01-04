@@ -3,6 +3,7 @@ package com.fc.map.model;
 import java.io.Serializable;
 
 public class Subject implements Serializable {
+    private String searchText;
     private Integer id;
     private String name;
     private String color;
@@ -22,6 +23,14 @@ public class Subject implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSearchText() {
+        return searchText;
+    }
+
+    public void setSearchText(String searchText) {
+        this.searchText = searchText;
     }
 
     public String getColor() {

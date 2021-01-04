@@ -34,6 +34,9 @@
     <if test="map.name!=null and map.name!='' ">
       and t.name like concat('%',#{map.name},'%')
     </if>
+    <if test="map.searchText!=null and map.searchText!='' ">
+      and t.name like concat('%',#{map.searchText},'%')
+    </if>
     <if test="map.program!=null and map.program!=''">
       and t.program=#{map.program}
     </if>
@@ -180,13 +183,16 @@
   <select id="programList" resultType="com.fc.map.model.ComboModel">
     select distinct t.program id , t.program text
     from t_map t
+    where t.program is not null
   </select>
   <select id="provinceList" resultType="com.fc.map.model.ComboModel">
     select distinct t.province id , t.province text
     from t_map t
+    where t.province is not null
   </select>
   <select id="allProvinceList" resultType="com.fc.map.model.ComboModel">
     select distinct t.province id , t.province text
     from t_province t
+    where t.province is not null
   </select>
 </mapper>

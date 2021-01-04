@@ -78,10 +78,16 @@
 									<input class="form-control" type="text" id="joinindex" name="joinindex" th:value="*{joinindex}"/>
 								</div>
 							</div>
-							<div class="form-group">
+							<!--<div class="form-group">
 								<label class="col-sm-3 control-label ">省份：</label>
 								<div class="col-sm-8">
 									<input class="form-control" type="text" id="province" name="province" th:value="*{province}"/>
+								</div>
+							</div>-->
+							<div class="form-group">
+								<label class="col-sm-3 control-label ">省份：</label>
+								<div class="col-sm-8">
+									<input  class=" easyui-combobox" style="width: 100%;" id="province" name="province" th:value="*{province}" />
 								</div>
 							</div>
 							<div class="form-group" hidden="hidden">
@@ -141,6 +147,13 @@ $(function(){
 	$('#program').combobox({
 		//data:province,
 		url:'/sub/sublist',
+		editable: false,
+		valueField:'id',
+		textField:'text'
+	});
+	$('#province').combobox({
+		//data:province,
+		url:'/map/allProvincelist',
 		editable: false,
 		valueField:'id',
 		textField:'text'
