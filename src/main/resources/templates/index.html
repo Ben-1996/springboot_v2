@@ -8,6 +8,13 @@
         html{height:100%}
         body{height:100%;margin:0px;padding:0px}
         #container{height:100%}
+        div.RoundedCorner{background: #9BD1FA}
+        b.rtop, b.rbottom{display:block;background: #FFF}
+        b.rtop b, b.rbottom b{display:block;height: 1px;overflow: hidden; background: #9BD1FA}
+        b.r1{margin: 0 5px}
+        b.r2{margin: 0 3px}
+        b.r3{margin: 0 2px}
+        b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px}<br>
     </style>
     <script type="text/javascript" th:src="@{/static/admin/assets/js/jquery.min.js}"></script>
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=Gc2vqwQTGRu47FgbsUei0jp29BasmXGO"></script>
@@ -20,7 +27,9 @@
     <link rel="stylesheet" th:href="@{/static/admin/assets/css/bootstrap.css}">
     <link rel="stylesheet" th:href="@{/static/admin/jquery-easyui-1.8.6/easyui.css}">
     <link rel="stylesheet" th:href="@{/static/admin/jquery-easyui-1.8.6/icon.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/admin/assets/css/style.css}">
     <link rel="icon" th:href="@{/static/admin/images/favicon.ico}" type="image/x-icon">
+    <script type="text/javascript" data-th-src="@{/static/admin/assets/js/bootstrap.js}"></script>
     <script type="text/javascript" data-th-src="@{/static/js/app/map/map.js}"></script>
 </head>
 
@@ -50,6 +59,39 @@
     <div style="margin-top: 3%">
         <h3 style="color:#0059cc;">万邦英语全国加盟商位置信息</h3>
     </div>
+</div>
+<div  style="position: absolute; z-index: 11; right: 5%;top: 5%;">
+    <div id="loginbox" style="display: none" >
+        <a href="/admin/index">登录</a>
+    </div>
+    <div id="userbox" style="display: none;">
+        <input type="hidden" id="usernameSession" th:value="${session.sessionUserName}">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <img alt="" class="admin-pic img-circle" th:src="@{/static/admin/portraits/thumb/men/10.jpg}">
+            <span th:text="${'Hi,'+session.sessionUserName}"></span>
+            <b class="caret"></b>
+        </a>
+        <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
+            <li>
+                    <a href="/admin/index">
+                    <span class="entypo-basket"></span>&#160;&#160; 后台管理</a>
+            </li>
+            <!--<li>
+                <a href="#">
+                    <span class="entypo-vcard"></span>&#160;&#160;Account Setting</a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="entypo-lifebuoy"></span>&#160;&#160;Help</a>
+            </li>-->
+            <li class="divider"></li>
+            <li>
+                <a th:href="@{/admin/Loginout}">
+                    <span class="entypo-basket"></span>&#160;&#160; 退出登录</a>
+            </li>
+        </ul>
+    </div>
+
 </div>
 
 

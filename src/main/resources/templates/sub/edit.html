@@ -41,13 +41,19 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label ">科目名称：</label>
                                 <div class="col-sm-8">
-                                    <input  class=" easyui-combobox" id="name" name="name"/>
+                                    <input class="form-control" type="text" id="name" name="name" th:value="*{name}"/>
                                 </div>
                             </div>
+                            <!--<div class="form-group">
+                                <label class="col-sm-3 control-label ">科目名称：</label>
+                                <div class="col-sm-8">
+                                    <input  class=" easyui-combobox" id="name" name="name"/>
+                                </div>
+                            </div>-->
                             <div class="form-group">
                                 <label class="col-sm-3 control-label ">颜色：</label>
                                 <div class="col-sm-8">
-                                    <input  class=" easyui-combobox" id="color" name="color"/>
+                                    <input  class=" easyui-combobox" id="color" name="color" th:value="*{color}"/>
                                 </div>
                             </div>
 
@@ -97,13 +103,13 @@
             initialDate:new Date(),
             minView: 2
         });
-        $('#name').combobox({
+        /*$('#name').combobox({
             //data:province,
             data:program,
             editable: false,
             valueField:'id',
             textField:'text'
-        });
+        });*/
         $('#color').combobox({
             //data:province,
             data:color,
@@ -115,7 +121,19 @@
 
 
     $("#form-edit").validate({
+        rules:{
+            name:{
+                required:true,
+                minlength: 2,
+                maxlength: 20
+            }
+        },
         submitHandler : function(form) {
+            var programCombox=$('#color').combobox('getValue');
+            if(programCombox==null||programCombox==""){
+                $.modal.alert("请选择颜色！");
+                return false;
+            }
             edit();
         }
     });

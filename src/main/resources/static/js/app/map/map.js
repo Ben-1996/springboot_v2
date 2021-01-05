@@ -22,6 +22,12 @@ $(function () {
         valueField:'id',
         textField:'text'
     });
+    var username=$('#usernameSession').val();
+    if(username!=null&&username!=''){
+        $('#userbox').show();
+    }else{
+        $('#loginbox').show();
+    }
     var map = new BMapGL.Map("container");
     // 创建地图实例
     map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
@@ -212,7 +218,7 @@ $(function () {
             $('#area').combobox('setValue',null);
             $('#program').combobox('setValue',null);
             $('#name').textbox('clear');
-
+            $('#cx').click();
         }
     });
 

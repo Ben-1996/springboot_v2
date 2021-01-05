@@ -33,13 +33,18 @@
                 <div class="body-nest" id="element">
                     <div class="panel-body" style="height: 70%">
                         <form  class="form-horizontal m" id="form-add" style="width: 98%;">
-
                             <div class="form-group">
+                                <label class="col-sm-3 control-label ">科目名称：</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="name" name="name"/>
+                                </div>
+                            </div>
+                            <!--<div class="form-group">
                                 <label class="col-sm-3 control-label ">科目名称：</label>
                                 <div class="col-sm-8">
                                     <input  class=" easyui-combobox" id="name" name="name"/>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="form-group">
                                 <label class="col-sm-3 control-label ">颜色：</label>
                                 <div class="col-sm-8">
@@ -93,13 +98,13 @@
             initialDate:new Date(),
             minView: 2
         });
-        $('#name').combobox({
+        /*$('#name').combobox({
             //data:province,
             data:program,
             editable: false,
             valueField:'id',
             textField:'text'
-        });
+        });*/
         $('#color').combobox({
             //data:province,
             data:color,
@@ -111,30 +116,24 @@
 
 
     $("#form-add").validate({
-        /*rules:{
-            areaName:{
+        rules:{
+            name:{
                 required:true,
                 minlength: 2,
-                maxlength: 20,
-                remote: {
-                    url: rootPath + "/SysAreaController/checkNameUnique",
-                    type: "post",
-                    dataType: "json",
-                    dataFilter: function(data, type) {
-                        if (data == "0")
-                            return true;
-                        else
-                            return false;
-                    }
-                }
+                maxlength: 20
             }
         },
         messages: {
             "areaName": {
                 remote: "已经存在"
             }
-        },*/
+        },
         submitHandler:function(form){
+            var programCombox=$('#color').combobox('getValue');
+            if(programCombox==null||programCombox==""){
+                $.modal.alert("请选择颜色！");
+                return false;
+            }
             add();
         }
     });
