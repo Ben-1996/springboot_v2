@@ -90,7 +90,7 @@ $(function () {
                 // 创建信息窗口
                 var opts = {
                     width: 225,
-                    height: 200,
+                    height: 220,
                     enableMessage:true//设置允许信息窗发送短息
                 };
                 var content = '<span style="font-weight: bold">第' +mapPointList[i].joinindex+'位加盟商</span>'
@@ -180,7 +180,7 @@ $(function () {
                         // 创建信息窗口
                         var opts = {
                             width: 225,
-                            height: 200,
+                            height: 220,
                             enableMessage:true//设置允许信息窗发送短息
                         };
                         var content = '<span style="font-weight: bold">第' +mapPointList[i].joinindex+'位加盟商</span>'
