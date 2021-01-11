@@ -214,7 +214,7 @@ $(function () {
         }
     })
     $('#cz').linkbutton({
-        onClick(){
+        onClick:function(){
             $('#area').combobox('setValue',null);
             $('#program').combobox('setValue',null);
             $('#name').textbox('clear');
